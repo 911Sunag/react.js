@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+//usestate
+
+const App = () => {
+  const [num, setNum] = useState(0);
+
+  const insBtn = () => {
+    setNum(num + 1);
+  };
+  const desBtn = () => {
+    if(num > 0){
+      setNum(num - 1);
+    }
+  };
+  const restBtn = () => {
+    setNum(0);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="bg-gray-900 h-screen flex  items-center justify-center">
+      <div className="bg-gray-600 flex flex-col items-center p-10 rounded-3xl">
+        <h1 className="p-5 font-bold text-8xl text-blue-200">{num}</h1>
+        <div className="flex gap-4">
+          <button onClick={insBtn} className="bg-blue-500 p-2 rounded-xl font-semibold text-indigo-100">
+            Increase ++
+          </button>
+          <button onClick={restBtn} className="bg-red-500 p-2 rounded-xl font-semibold text-indigo-100">Reset</button>
+          <button onClick={desBtn} className="bg-blue-500 p-2 rounded-xl font-semibold text-indigo-100">Decrease -- </button>
+          
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
+export default App;

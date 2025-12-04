@@ -2,15 +2,17 @@ import React from 'react'
 
 const App = () => {
   
-  function pageScrolling(){
-   console.log("Hello user")
-  }
+ const btnClick = () => {
+    console.log("Hello Button")
+ }
+ const inputChange = (e) => {
+   console.log(e.target.value)
+ }
 
   return (
     <div>
-      <input onChange={function(){
-        pageScrolling();
-      }} type="text" placeholder='enter' /> 
+       <button className='px-10 py-5 rounded-b-md bg-blue-500 text-2xl font-bold' onClick={btnClick}>Hello Console</button>
+       <input type="text" placeholder='Hello input' onChange={inputChange} />
     </div>
   )
 }
